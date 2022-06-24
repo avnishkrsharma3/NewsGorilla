@@ -9,7 +9,7 @@ const NewsItem = (props) =>  {
                     position: "absolute",
                     right: '0'}}> {source}                      
                 </div>
-                <img
+                <img 
                     src={
                         !imageUrl
                             ? "https://images.news18.com/ibnlive/uploads/2022/06/star-165553670816x9.jpg"
