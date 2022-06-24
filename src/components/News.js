@@ -32,28 +32,33 @@ export default class News extends Component {
         category: PropTypes.string,
         cnt: PropTypes.number
     }
-    async componentDidMount() {
-        //console.log("mount");
-        let url = `https://newsapi.org/v2/top-headlines?country=In&category=${this.props.category}&apiKey=db93ee39ecd94a85bd80f1207b1e0ef6&page=${this.state.page}&pagesize=${this.props.pageSize}`;
+    async updateNews() {
+        this.props.setProgress(10);
+        let url = `https://newsapi.org/v2/top-headlines?country=In&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pagesize=${this.props.pageSize}`;
         this.setState({
             loading : true
         });
-        //console.log(url);
+        console.log(url);
+        this.props.setProgress(30);
         let data = await fetch(url);
+        this.props.setProgress(50);
         let parseData = await data.json();
-        //console.log(parseData);
+        this.props.setProgress(65);
             this.setState({
             articles : parseData.articles, // it is an array
             totalResults : parseData.totalResults,
             loading :  false});
-        // console.log(this.state.page);
-        // console.log(this.state.articles);
+            this.props.setProgress(100);
+    }
+    async componentDidMount() {
+        console.log('call updateNews');
+    this.updateNews();
     }
     fetchMoreData = async() => {
         console.log("fetch Data");
         this.state.page = this.state.page + 1;       
         //console.log(this.state.page);
-        const url = `https://newsapi.org/v2/top-headlines?country=In&category=${this.props.category}&apiKey=db93ee39ecd94a85bd80f1207b1e0ef6&page=${this.state.page}&pagesize=${this.props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=In&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pagesize=${this.props.pageSize}`;
         //console.log(url);
         this.setState({
             loading: true
@@ -71,7 +76,7 @@ export default class News extends Component {
         //console.log("render");
         return (
             <>
-                <h1 className="text-center" style={{ marginTop: "25px", marginBottom: "15px" }}> {this.capitalizeFirstLetter(this.props.category) === "General" ? "News" : this.capitalizeFirstLetter(this.props.category)} - Top Headlines</h1>
+                <h1 className="text-center" style={{ marginTop: "90px", marginBottom: "15px" }}> {this.capitalizeFirstLetter(this.props.category) === "General" ? "News" : this.capitalizeFirstLetter(this.props.category)} - Top Headlines</h1>
                 {this.state.loading && <Spinner/>}
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
