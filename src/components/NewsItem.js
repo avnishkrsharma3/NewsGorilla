@@ -1,21 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class NewsItem extends Component {
-    render() {
-        let { title, description, imageUrl, newsUrl, author, date, source } = this.props;
+const NewsItem = (props) =>  {
+        let { title, description, imageUrl, newsUrl, author, date, source } = props;
         return (
             <div className="my-3">
                 <div className="card">
                     <div className="badge rounded-pill bg-danger" style={{display : 'flex',
                     position: "absolute",
-                    right: '0'}}> {source}                    
+                    right: '0'}}> {source}                      
                 </div>
                 <img
                     src={
                         !imageUrl
                             ? "https://images.news18.com/ibnlive/uploads/2022/06/star-165553670816x9.jpg"
                             : imageUrl
-                    }
+                        }
                     alt="..."
                 />
                 <div className="card-body">
@@ -39,5 +38,5 @@ export default class NewsItem extends Component {
             </div>
             </div >
         );
-    }
 }
+export default NewsItem;
