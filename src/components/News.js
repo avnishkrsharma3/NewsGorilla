@@ -30,6 +30,7 @@ const News =(props) => {
     }
     useEffect (()=>{
         updateNews();
+        document.title = `${capitalizeFirstLetter(props.category)} - NewsGorilla`
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     const fetchMoreData = async() => {
