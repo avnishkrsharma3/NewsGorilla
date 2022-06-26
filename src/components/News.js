@@ -18,7 +18,6 @@ const News =(props) => {
         props.setProgress(10);
         //let url = `https://newsapi.org/v2/top-headlines?country=In&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pagesize=${props.pageSize}`;
         let url = `https://saurav.tech/NewsAPI/top-headlines/category/${props.category}/in.json`
-        console.log(url);
         props.setProgress(30);
         let data = await fetch(url);
         props.setProgress(50);

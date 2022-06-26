@@ -1,17 +1,35 @@
 import React from 'react'
 import "./NavBar.css";
 import {  Link  } from "react-router-dom";
+import { useEffect, useState, } from 'react';
 const NavBar = () => {
-    
+    const [location, setLocation] = useState("")
+    const [contry, setCountry] = useState("India");
+    const [temp, setTemp] = useState("");
+    const [condition, setCondition] = useState("");
+    const updateWeather = async () => {        
+        let url = 'https://api.weatherapi.com/v1/current.json?key=7a10147a943a406e8dc152547222606&q=New-Delhi'
+        let data = await fetch(url);
+        let parseData = await data.json();
+        setLocation(parseData.location.name);
+        setCondition(parseData.current.condition.text);
+        setCountry(parseData.location.country);
+        setTemp(parseData.current.temp_c);
+    }
+    useEffect (()=>{
+        updateWeather();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
         return (
             <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" >
                 <div className="container-fluid">
                     <Link className="navbar-brand"  to="/" >Gorilla News 🌍</Link>
-                    <button className="navbar-toggler collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <Link className='btn'  to="/weather" style={{color : "#F8E0EC"}}>{location}, {contry}  {temp}<span>&#x2103;</span>  {condition} </Link>
+                    <button  className="navbar-toggler collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                         <div className='close-icon py-1'>✗</div>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div style={{ }} className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-link">
                                 <Link className ="nav-link" to="/">Home</Link>

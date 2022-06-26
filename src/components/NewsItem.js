@@ -32,7 +32,7 @@ const NewsItem = (props) =>  {
                         rel="noreferrer"
                         className="btn btn-sm btn-primary"
                     >
-                        Read More
+                        Read More...
                     </a>
                 </div>
             </div>
