@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import NewsItem from './NewsItem'
 import Spinner from "./Spinner";
 const Weather = (props) => {
     const [loading, setLoading] = useState(false)
-    const [page, setPage] = useState(1)
-    const [totalResults, setTotalResults] = useState(0);
     const [location, setLocation] = useState({});
     const [current, setCurrent] = useState({});
-    const [condition, setCondition] = useState("Mist");
     const [inputField, setInputField] = useState('New-Delhi');
+    const [cityName, setCity] = useState('New-Delhi')
     const updateNews = async () => {
-        let url = `https://api.weatherapi.com/v1/current.json?key=7a10147a943a406e8dc152547222606&q=${props.cityName}`
+        let url = `https://api.weatherapi.com/v1/current.json?key=7a10147a943a406e8dc152547222606&q=${inputField}`
         setLoading(true);
         let data = await fetch(url);
         let parseData = await data.json();
@@ -24,20 +20,24 @@ const Weather = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const inputsHandler = (e) =>{
-        setInputField( {[e.target.name]: e.target.value} )
+        setInputField(e.target.value)
     }
-    console.log(inputField);
+    const handleSubmit = (e) => {
+        setCity(inputField)
+        console.log("sumbit button clicked");
+        console.log(cityName)
+        updateNews();
+        e.preventDefault();
+    }
     document.title = "Weather-Report Gorilla News"
     return (
-
-        <div className='container' style={{ marginTop: "150px" }}>
+        <div className='container' style={{ marginTop: "120px" }}>
             {loading && <Spinner />}
-            <form className="form-inline">
+            <form className="form-inline" onSubmit={handleSubmit}>
                 <div className="form-group mx-sm-3 mb-2">
-                    <label for="inputPassword2" className="sr-only">Choose Location</label>
-                    <input type="text" className="form-control" id="inputPassword2" onChange={inputsHandler} placeholder="New-Delhi"/>
+                    <input type="text" className="form-control" onChange={inputsHandler} placeholder="New-Delhi"/>
                 </div>
-                <button to="/weather" style={{marginLeft:"18px"}} type="submit" className="btn btn-primary mb-2">Search</button>
+                <button style={{marginLeft:"18px"}} type="submit" className="btn btn-primary mb-2" >Search</button>
             </form>
             <table className="table table-hover table-dark">
                 <thead>
