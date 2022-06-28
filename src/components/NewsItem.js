@@ -17,24 +17,20 @@ const NewsItem = (props) =>  {
                         }
                     alt="..."
                 />
+                <a href={newsUrl}
+                        target="_blank"
+                        rel="noreferrer" style = {{textDecoration: "none"}}>
                 <div className="card-body">
-                    <h5 className="card-title" >{title}...</h5>
-                    <p className="card-text">{description}.... </p>
-                    <p className="card-text">
+                    <h5 className="card-title" style = {{color : "#383838"}} >{title}...</h5> 
+                    <p className="card-text" style = {{color : "#383838"}}>{description}.... </p>
+                    <p className="card-text" >
                         <small className="text-muted">
                             By {!author ? "unknown" : author}, Last updated{" "}
                             <b>{new Date(date).toGMTString()}</b>.
                         </small>
                     </p>
-                    <a
-                        href={newsUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="btn btn-sm btn-primary"
-                    >
-                        Read More...
-                    </a>
                 </div>
+                </a>
             </div>
             </div >
         );

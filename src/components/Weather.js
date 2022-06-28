@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Spinner from "./Spinner";
+import NavBar from "./NavBar";
+import "./Weather.css"
 const Weather = (props) => {
     const [loading, setLoading] = useState(false)
     const [location, setLocation] = useState({});
     const [current, setCurrent] = useState({});
     const [inputField, setInputField] = useState('New-Delhi');
     const [cityName, setCity] = useState('New-Delhi')
+    const [flag, setFlag] = useState(false);
     const updateNews = async () => {
         let url = `https://api.weatherapi.com/v1/current.json?key=7a10147a943a406e8dc152547222606&q=${inputField}`
         setLoading(true);
         let data = await fetch(url);
         let parseData = await data.json();
         setLocation(parseData.location);
-        setCurrent(parseData.current);
-        setLoading(false);
+        setCurrent(parseData.current);        
+        setTimeout(() =>{
+            setLoading(false);
+        },100)();       
     }
     useEffect(() => {
         updateNews();
@@ -33,6 +38,7 @@ const Weather = (props) => {
     return (
         <div className='container' style={{ marginTop: "120px" }}>
             {loading && <Spinner />}
+            <div>{<NavBar cityName = {cityName}/>}</div>
             <form className="form-inline" onSubmit={handleSubmit}>
                 <div className="form-group mx-sm-3 mb-2">
                     <input type="text" className="form-control" onChange={inputsHandler} placeholder="New-Delhi"/>

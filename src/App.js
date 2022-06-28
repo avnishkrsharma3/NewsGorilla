@@ -24,7 +24,7 @@ const  App = () => {
         progress={progress} 
         height = {3}
       />
-        <NavBar/>
+        <NavBar cityName = {cityName}/>
         <Routes>
           <Route exact path="/weather" element = {<Weather setCity = {setCity} cityName ={cityName}/>}/>
           <Route exact path="/" element = {<News setProgress = {setProgress} apiKey = {apiKey}  key="general" pageSize={pageSize} country="in" category={'general'}/>}/>
