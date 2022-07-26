@@ -25,3 +25,7 @@ img.roundCorner {
     clip-path: circle();
     border-radius: 50%;
 }
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.44) 0px 19px 43px;
+    transform: translate3d(0px, -4px, 0px);
+  }

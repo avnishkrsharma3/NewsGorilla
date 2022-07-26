@@ -15,10 +15,9 @@ const Weather = (props) => {
         let data = await fetch(url);
         let parseData = await data.json();
         setLocation(parseData.location);
-        setCurrent(parseData.current);        
-        setTimeout(() =>{
-            setLoading(false);
-        },100)();       
+        setCurrent(parseData.current);    
+        console.log(parseData); 
+        setLoading(false)       
     }
     useEffect(() => {
         updateNews();
@@ -55,44 +54,44 @@ const Weather = (props) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row"></th>
                         <td>Place Name</td>
                         <td>{location.name}</td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
+                        <th scope="row"></th>
                         <td>Region</td>
                         <td>{location.region}</td>
                     </tr>
                     <tr>
-                        <th scope="row">3</th>
+                        <th scope="row"></th>
                         <td >Country</td>
                         <td >{location.country}</td>
                     </tr>
                     <tr>
-                        <th scope="row">4</th>
+                        <th scope="row"></th>
                         <td >Local Time</td>
                         <td >{location.localtime}</td>
                     </tr>
                     <tr>
-                        <th scope="row">5</th>
+                        <th scope="row"></th>
                         <td >Temperature</td>
                         <td >{current.temp_c}<span>&#x2103;</span></td>
                     </tr>
                     <tr>
-                        <th scope="row">6</th>
+                        <th scope="row"></th>
                         <td >Feels Like</td>
                         <td >{current.feelslike_c}<span>&#x2103;</span></td>
                     </tr>
                     <tr>
-                        <th scope="row">7</th>
+                        <th scope="row"></th>
                         <td >Wind Speed</td>
                         <td >{current.wind_kph}<span> Km/h</span></td>
                     </tr>
                     <tr>
-                        <th scope="row">8</th>
+                        <th scope="row"></th>
                         <td>Humidity</td>
-                        <td>{current.humidity}</td>
+                        <td>{current.text}</td>
                     </tr>
 
                 </tbody>

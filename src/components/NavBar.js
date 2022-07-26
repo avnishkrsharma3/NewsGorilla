@@ -23,37 +23,37 @@ const NavBar = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
         return (
-            <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" >
+            <nav className="navbar fixed-top navbar-expand-lg navbar-light" style={{backgroundColor: "#031E46"}}>
                 <div className="container-fluid">
-                    <Link className="navbar-brand"  to="/" style = {{marginRight : "0px"}}>Gorilla News <img className = "roundCorner" src = {revolving}  widht = "7px" height = "30px"  alt= "h"></img></Link>
+                    <Link className="navbar-brand"  to="/" style = {{color: "white", marginRight : "0px"}}>Gorilla News <img className = "roundCorner" src = {revolving}  widht = "7px" height = "30px"  alt= "h"></img></Link>
                     <Link className='btn'  to="/weather" style={{color : "#F8E0EC", marginLeft : "1px" ,  }}>{location}, {temp}<span>&#x2103;</span></Link>
                     <button  className="navbar-toggler collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon my-toggler"  style={{color : "white"}}></span>
                         
                         <div className='close-icon py-1' style ={ {color : 'red'}}>✗</div>
                     </button>
                     <div style={{ }} className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-link">
-                                <Link className ="nav-link" to="/">Home</Link>
+                                <Link className ="nav-link" to="/" style={{color : "white"}}>Home</Link>
                             </li>
                             <li className="nav-link">
-                                <Link className ="nav-link" to="/business">Business</Link>
+                                <Link className ="nav-link" to="/business" style={{color : "white"}}>Business</Link>
                             </li>
                             <li className="nav-link">
-                                <Link className ="nav-link" to="/entertainment">Entertainment</Link >
+                                <Link className ="nav-link" to="/entertainment" style={{color : "white"}}>Entertainment</Link >
                             </li>
                             <li className="nav-link">
-                                <Link className ="nav-link" to="/health">Health</Link>
+                                <Link className ="nav-link"  to="/health" style={{color : "white"}}>Health</Link>
                             </li>
                             <li className="nav-link">
-                                <Link className ="nav-link"  to ='/science'>Science</Link>
+                                <Link className ="nav-link"  to ='/science' style={{color : "white"}}>Science</Link>
                             </li>
                             <li className="nav-link">
-                                <Link className ="nav-link" to="/sports">Sports</Link>
+                                <Link className ="nav-link" to="/sports" style={{color : "white"}}>Sports</Link>
                             </li>   
                             <li className="nav-link">
-                                <Link className ="nav-link" to="/technology">Technology</Link>
+                                <Link className ="nav-link" to="/technology" style={{color : "white"}}>Technology</Link>
                             </li>                          
                         </ul>
                     </div>
