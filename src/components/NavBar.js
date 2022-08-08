@@ -26,7 +26,6 @@ const NavBar = (props) => {
             <nav className="navbar fixed-top navbar-expand-lg navbar-light" style={{backgroundColor: "#4863A0"}}>
                 <div className="container-fluid">
                     <Link className="navbar-brand"  to="/" style = {{color: "white", marginRight : "0px"}}>Gorilla News <img className = "roundCorner" src = {revolving}  widht = "7px" height = "30px"  alt= "h"></img></Link>
-                    <Link className='btn'  to="/weather" style={{color : "#F8E0EC", marginLeft : "1px" ,  }}>{location}, {temp}<span>&#x2103;</span></Link>
                     <button  className="navbar-toggler collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon my-toggler"  style={{color : "white"}}></span>
                         
@@ -54,7 +53,10 @@ const NavBar = (props) => {
                             </li>   
                             <li className="nav-link">
                                 <Link className ="nav-link" to="/technology" style={{color : "white"}}>Technology</Link>
-                            </li>                          
+                            </li>  
+                            <li className='nav-link'>
+                            <Link className='nav-link'  to="/weather" style={{color : "white"}}>Weather</Link>
+                            </li>                        
                         </ul>
                     </div>
                 </div>
