@@ -23,7 +23,7 @@ const NavBar = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
         return (
-            <nav className="navbar fixed-top navbar-expand-lg navbar-light" style={{backgroundColor: "#031E46"}}>
+            <nav className="navbar fixed-top navbar-expand-lg navbar-light" style={{backgroundColor: "#A52A2A"}}>
                 <div className="container-fluid">
                     <Link className="navbar-brand"  to="/" style = {{color: "white", marginRight : "0px"}}>Gorilla News <img className = "roundCorner" src = {revolving}  widht = "7px" height = "30px"  alt= "h"></img></Link>
                     <Link className='btn'  to="/weather" style={{color : "#F8E0EC", marginLeft : "1px" ,  }}>{location}, {temp}<span>&#x2103;</span></Link>
